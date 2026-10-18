@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>NASA Events Dashboard</title>
+    <link rel="stylesheet" href="./bootstrap.min.css">
+    <link rel="stylesheet" href="./dashboard.css">
+</head>
+<body>
+    <h1 class="text-center display-2"> NASA Events Dashboard</h1>
+    <p class="text-center display-6">Ongoing NASA Events in the past 10 days</p>
+    <table>
+        <thead>
+        <tr>
+            <th scope="col">Event</th>
+            <th scope="col">Name</th>
+            <th scope="col">Additional information</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr th:each="event: ${events}">
+                <th scope="row" th:text="${event.id}"></th>
+                <td th:text="${event.title}"/>
+                <td th:text="${event.description}">
+            </tr>
+        </tbody>
+    </table>
+<p class="text-center m-2">Using the publicly available EONET API by NASA, see https://eonet.gsfc.nasa.gov/docs/v3. </p>
+</body>
+</html>
